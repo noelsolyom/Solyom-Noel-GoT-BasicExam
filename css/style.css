@@ -153,6 +153,14 @@ body{
       width: 40%;
       margin-left: auto;
       margin-right: auto;
+
+      transition-duration: 1.5s;
+      transition-property: transform;
+    }
+
+    .character-item img:hover {
+      transform: rotate3d(0, 1, 0, 180deg);
+      -webkit-transform: rotate3d(0, 1, 0, 180deg);
     }
 
     .character-item p {
