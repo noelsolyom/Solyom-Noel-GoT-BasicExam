@@ -1,0 +1,34 @@
+-- Az importalando adatok sql fajlban a \-rel escapelt reszeket ki kellett cserelnem '-ra.
+-- Az adatbazis feltolteset CTRL+A CTRL+C CTRL+V-vel oldottam meg, igy az eredeti fajl tartalma nem valtozott.
+
+-- FELADATOK:
+a.	Melyik házba hány élő karakter tartozik, amelyik nem tartozik egy szervezethez sem. Tehát a ház neve, 
+és az adott házba tartozó karakterek száma. (ha él, és egy szervezetnek sem tagja)
+
+    SELECT house, COUNT(name) FROM got.characters
+	    WHERE dead <> 'true' AND organization=" " AND house <> " "
+    	    GROUP BY house;
+
+b.	Minden olyan karakter minden adata, aki él, és akinek a történetében a „hero” szó szerepel, és még életben van.
+
+    SELECT * FROM got.characters
+	    WHERE dead <> 'true' AND bio LIKE '%hero%';
+
+c.	Az éjjeli őrség szervezet tagjai, akik életben vannak, és nem tartoznak egy házhoz sem.
+
+    SELECT * FROM got.characters
+	    WHERE organization = 'nightwatch' AND dead <> 'true' AND house = " ";
+
+d.	Azon élő karakterek 
+•	Nevét, mint Hero, 
+•	Alias (bece) nevét, mint Nick Name és 
+•	házát, mint Big House, 
+akik 
+•	életben vannak, 
+•	nem Lannisterek (tehát nem a Lannister házba tartoznak), 
+•	nem a Royalguard tagjai, 
+•	és a történetükben nem szerepel a Lannister (javitva Lennisterrol!) vagy a King’s Landing szó.
+
+    SELECT name AS 'Hero', alias AS 'Nick Name', house AS 'Big House' FROM got.characters
+	    WHERE dead <> 'true' AND house <> 'Lannister' AND organization <> 'Royalguard' AND
+    	    (bio NOT LIKE '%Lannister%' OR bio NOT LIKE '%King_s Landing %');
