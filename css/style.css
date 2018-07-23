@@ -1,0 +1,90 @@
+body{
+    margin:0;
+    font-size: 16px;
+  }
+  
+  div{
+    position:relative;
+    box-sizing:border-box;
+    padding: 20px;
+  }
+
+  h2 {
+      text-align: center;
+      color: #fff;
+  }
+  .container{
+    width:100%;
+    min-height: 100vh;
+    padding:0;
+  }
+  
+  .container:after{
+    content: '';
+    clear: both;
+    display: table;
+  }
+  
+  .container>div{
+    float: left;
+    height: auto;
+  }
+  
+  .character-list{
+    width: 100%;
+    background-image: url("/assets/site/mapblue.jpg");
+    background-position-x: -500px;
+    background-position-y: -500px;
+    overflow: auto;
+  }
+  
+  .one-character{
+    width: 100%;
+    background: #585858;
+  }
+  
+  .searchbar{
+    position: relative;
+  }
+  
+  #search-text,
+  #search-button {
+    line-height: 16px;
+    padding: 5px 10px;
+    border-radius: 1px;
+    border: 2px solid #fff;
+  }
+  
+  #search-text {
+   width:150px;
+  }
+  
+  #search-button{
+    font-weight: bold;
+    color: #fff;
+    background-color: #585858;
+  }
+  
+  #search-button:hover{
+    cursor: pointer;
+  }
+  
+  @media(min-width:1200px){
+    .character-list{
+      width: 80%;
+    }
+  
+    .one-character{
+      width: 20%;
+    }
+  
+    .container>div{
+      height: 100vh;
+    }
+    
+    .searchbar{
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+    }
+  } 
