@@ -14,10 +14,6 @@ function successAjax(xhttp) {
   deleteObject(userDatas, 'dead', 'true');
   advBubbleSort(userDatas, 'name');
   showCharacters(userDatas);
-
-  for (let i = 0; i < userDatas.length; i++) {
-    console.log(userDatas[i].name);
-  }
 }
 
 getData('/json/characters.json', successAjax);
@@ -124,11 +120,9 @@ function showDetails(characterData) {
   let nameHeader = document.createElement('h3');
   nameHeader.innerHTML = characterData.name;
   listDiv.appendChild(nameHeader);
-
   let detailPara = document.createElement('p');
   detailPara.innerHTML = characterData.bio;
   listDiv.appendChild(detailPara);
-
   return listDiv;
 }
 
