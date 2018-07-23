@@ -69,17 +69,65 @@ function createCharacter(listDiv, characterData) {
 
   let namePara = document.createElement('p');
   namePara.innerHTML = characterData.name;
+  namePara.character = characterData;
 
-  let img = createPortrait(characterData);
-  characterItem.appendChild(img);
+  namePara.onclick = function onClickEvent() {
+    showOneCharacter(this.character);
+  };
+  let portraitImage = createPortrait(characterData);
+  characterItem.appendChild(portraitImage);
 
   characterItem.appendChild(namePara);
   listDiv.appendChild(characterItem);
 }
 
 function createPortrait(characterData) {
-  let img = document.createElement('img');
-  img.src = characterData.portrait;
-  img.alt = characterData.name;
-  return img;
+  let characterPortrait = document.createElement('img');
+  characterPortrait.src = characterData.portrait;
+  characterPortrait.alt = characterData.name;
+  return characterPortrait;
+}
+
+function showOneCharacter(characterData) {
+  let oneCharacter = document.querySelector('.one-character');
+  let listDiv = createListDiv(oneCharacter);
+  listDiv.innerHTML = '';
+
+  let characterPic = createPicture(characterData);
+  listDiv.appendChild(characterPic);
+
+  let characterDataList = showDetails(characterData);
+  listDiv.appendChild(characterDataList);
+}
+
+function createPicture(characterData) {
+  let characterPicture = document.createElement('img');
+  characterPicture.src = characterData.picture;
+  characterPicture.alt = characterData.name;
+  return characterPicture;
+}
+
+function showDetails(characterData) {
+  let listDiv = document.createElement('div');
+  listDiv.className = 'list-div';
+  let oneCharacter = document.querySelector('.one-character');
+  oneCharacter.appendChild(listDiv);
+
+  if (characterData.house) {
+    let houseImage = document.createElement('img');
+    houseImage.src = `/assets/houses/${characterData.house}.png`;
+    houseImage.alt = 'House';
+    houseImage.style.float = 'right';
+    listDiv.appendChild(houseImage);
+  }
+
+  let nameHeader = document.createElement('h3');
+  nameHeader.innerHTML = characterData.name;
+  listDiv.appendChild(nameHeader);
+
+  let detailPara = document.createElement('p');
+  detailPara.innerHTML = characterData.bio;
+  listDiv.appendChild(detailPara);
+
+  return listDiv;
 }

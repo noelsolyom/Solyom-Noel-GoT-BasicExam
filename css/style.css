@@ -109,6 +109,14 @@ body{
     .one-character{
       width: 20%;
     }
+
+    .one-character .list-div img{
+      width: 100%;
+    }
+
+    .one-character .list-div .list-div img{
+      width: unset;
+    }
   
     .container>div{
       height: 100vh;
