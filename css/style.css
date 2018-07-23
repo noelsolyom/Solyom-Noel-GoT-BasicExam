@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@font-face {
+  font-family: Roboto;
+  src: url(/fonts/Roboto-Regular.ttf);
+}
 
 @font-face {
     font-family: GoT;
@@ -10,19 +13,20 @@ body{
     font-size: 16px;
   }
   
-  div{
+div{
     position:relative;
     box-sizing:border-box;
     padding: 20px;
   }
 
-  h2 {
+h2{
       text-align: center;
       color: #fff;
       font-family: GoT;
       font-size: 1em;
   }
-  .container{
+
+.container{
     width:100%;
     min-height: 100vh;
     padding:0;
@@ -34,12 +38,12 @@ body{
     display: table;
   }
   
-  .container>div{
+.container>div{
     float: left;
     height: auto;
   }
   
-  .character-list{
+.character-list{
     width: 100%;
     background-image: url("/assets/site/mapblue.jpg");
     background-position-x: -500px;
@@ -47,13 +51,13 @@ body{
     overflow: auto;
   }
 
-  .character-item {
+.character-item {
     display: inline;
     text-align: center;
     font-size: 2.5em;
-}
+  }
 
-  .character-item img {
+.character-item img {
     display: block;
     width: 33.33%;
     margin-left: auto;
@@ -61,45 +65,52 @@ body{
     overflow: hidden;
   }
 
-  .character-item p{
+.character-item p{
     font-family: GoT;
     color: rgb(116,85,75);
     font-size: 0.5em;
-}
+  }
 
-  .one-character{
+.one-character{
     width: 100%;
     background: #585858;
   }
+
+.one-character .list-div {
+    padding:0;
+    color: #fff;
+    font-family: Roboto;
+    text-align: left;
+  }
   
-  .searchbar{
+.searchbar{
     position: relative;
     text-align: center;
   }
   
-  #search-text,
-  #search-button {
+#search-text,
+#search-button {
     line-height: 16px;
     padding: 5px 10px;
     border-radius: 1px;
     border: 1px solid #fff;
   }
   
-  #search-text {
+#search-text {
     width:150px;
     padding: 5px 10px 5px 20px;
   }
   
-  #search-button{
+#search-button{
     font-weight: bold;
     color: #fff;
     background-color: #585858;
   }
   
-  #search-button:hover{
+#search-button:hover{
     cursor: pointer;
   }
-  
+
   @media(min-width:1200px){
     .character-list{
       width: 80%;
@@ -173,6 +184,7 @@ body{
       float: right;
       width: 60%;
       padding:5px 10px 5px 20px;
+      font-family: Roboto;
      }
 
     .one-character .list-div {
@@ -181,4 +193,4 @@ body{
       font-family: Roboto;
       text-align: left;
     }
-  } 
+  }
