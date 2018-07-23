@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 @font-face {
     font-family: GoT;
     src: url(/fonts/got.ttf);
@@ -46,9 +48,9 @@ body{
   }
 
   .character-item {
-   display: inline;
-   text-align: center;
-   font-size: 2.5em;
+    display: inline;
+    text-align: center;
+    font-size: 2.5em;
 }
 
   .character-item img {
@@ -84,7 +86,8 @@ body{
   }
   
   #search-text {
-   width:150px;
+    width:150px;
+    padding: 5px 10px 5px 20px;
   }
   
   #search-button{
@@ -140,6 +143,11 @@ body{
       font-size:1em;
     }
 
+    .character-item p:hover {
+      font-weight: bold;
+      cursor: pointer;
+    }
+
     .character-item img {
       display: inline-block;
       width: 40%;
@@ -156,5 +164,13 @@ body{
     #search-text {
       float: right;
       width: 60%;
+      padding:5px 10px 5px 20px;
      }
+
+    .one-character .list-div {
+      padding:0;
+      color: #fff;
+      font-family: Roboto;
+      text-align: left;
+    }
   } 
