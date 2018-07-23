@@ -1,0 +1,20 @@
+-- 'got' adatbazis letrehozasa, illesztes utf8, unicode_ci: 
+CREATE DATABASE if not exists got CHARSET=utf8 COLLATE=utf8_unicode_ci;
+use got;
+
+-- 'character' tabla letrehozasa adott parameterek alapjan
+-- az oszlopok nevei az importalandoAdatok.sql semaja alapjan
+
+create table characters(
+	id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+	dead VARCHAR(4),
+	name VARCHAR(50) NOT NULL,
+	alias VARCHAR(50),
+	portrait VARCHAR(50) NOT NULL,
+	picture VARCHAR(70) NOT NULL,
+	bio TEXT(510),
+	organization VARCHAR(50),
+	house VARCHAR(50)
+)
+
+ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
