@@ -111,6 +111,12 @@ h2{
     cursor: pointer;
   }
 
+.searchbar i{
+    position: absolute;
+    top: 26px;
+    left: 115px;
+  }
+
   @media(min-width:1200px){
     .character-list{
       width: 80%;
@@ -142,7 +148,6 @@ h2{
       bottom: 20px;
       left: 20px;
       padding: 0;
-      width: 90%;
     }
 
     .character-item {
@@ -181,9 +186,7 @@ h2{
     }
 
     #search-text {
-      float: right;
-      width: 60%;
-      padding:5px 10px 5px 20px;
+      padding:5px 10px 5px 25px;
       font-family: Roboto;
      }
 
@@ -192,5 +195,11 @@ h2{
       color: #fff;
       font-family: Roboto;
       text-align: left;
+    }
+
+    .searchbar i{
+      position: absolute;
+      top: 6px;
+      left: 40px;
     }
   }
