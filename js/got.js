@@ -10,11 +10,12 @@ function getData(url, callbackFunc) {
 }
 
 function successAjax(xhttp) {
-  var userDatas = JSON.parse(xhttp.responseText)[2].data;
+  let userDatas = JSON.parse(xhttp.responseText)[2].data;
   deleteObject(userDatas, 'dead', 'true');
   advBubbleSort(userDatas, 'name');
+  showCharacters(userDatas);
 
-  for (var i = 0; i < userDatas.length; i++) {
+  for (let i = 0; i < userDatas.length; i++) {
     console.log(userDatas[i].name);
   }
 }
@@ -42,4 +43,43 @@ function advBubbleSort(arrayToSort, key) {
     }
     i = swap;
   }
+}
+
+function showCharacters(dataList) {
+  let characterList = document.querySelector('.character-list');
+  let listDiv = createListDiv(characterList);
+  for (let i = 0; i < dataList.length; i++) {
+    createCharacter(listDiv, dataList[i]);
+  }
+}
+
+function createListDiv(dataList) {
+  let listDiv = dataList.querySelector('.list-div');
+  if (!listDiv) {
+    listDiv = document.createElement('div');
+    listDiv.className = 'list-div';
+    dataList.appendChild(listDiv);
+  }
+  return listDiv;
+}
+
+function createCharacter(listDiv, characterData) {
+  let characterItem = document.createElement('div');
+  characterItem.className = 'character-item';
+
+  let namePara = document.createElement('p');
+  namePara.innerHTML = characterData.name;
+
+  let img = createPortrait(characterData);
+  characterItem.appendChild(img);
+
+  characterItem.appendChild(namePara);
+  listDiv.appendChild(characterItem);
+}
+
+function createPortrait(characterData) {
+  let img = document.createElement('img');
+  img.src = characterData.portrait;
+  img.alt = characterData.name;
+  return img;
 }
