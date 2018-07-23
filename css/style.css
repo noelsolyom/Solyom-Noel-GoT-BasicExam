@@ -72,6 +72,7 @@ body{
   
   .searchbar{
     position: relative;
+    text-align: center;
   }
   
   #search-text,
@@ -126,6 +127,8 @@ body{
       position: absolute;
       bottom: 20px;
       left: 20px;
+      padding: 0;
+      width: 90%;
     }
 
     .character-item {
@@ -149,4 +152,9 @@ body{
        font-family: GoT;
        text-align: center;
     }
+
+    #search-text {
+      float: right;
+      width: 60%;
+     }
   } 

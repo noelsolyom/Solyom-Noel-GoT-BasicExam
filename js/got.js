@@ -131,3 +131,21 @@ function showDetails(characterData) {
 
   return listDiv;
 }
+
+document.querySelector('#search-button').onclick = searchCharacter;
+
+function searchCharacter() {
+  var inputValue = document.querySelector('#search-text').value;
+  var characterDataList = document.querySelectorAll('.character-item p');
+  for (var i = 0; i < characterDataList.length; i++) {
+    if (characterDataList[i].character.name.toLowerCase() === inputValue.toLowerCase()) {
+      showOneCharacter(characterDataList[i].character);
+      break;
+    } else {
+      let container = document.querySelector('.one-character');
+      let listDiv = createListDiv(container);
+      listDiv.innerHTML = 'Character not found';
+      listDiv.style.textAlign = 'center';
+    }
+  }
+}
