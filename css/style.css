@@ -1,3 +1,9 @@
+
+@font-face {
+    font-family: GoT;
+    src: url(/fonts/got.ttf);
+  }
+
 body{
     margin:0;
     font-size: 16px;
@@ -12,6 +18,8 @@ body{
   h2 {
       text-align: center;
       color: #fff;
+      font-family: GoT;
+      font-size: 1em;
   }
   .container{
     width:100%;
